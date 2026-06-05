@@ -26,8 +26,8 @@ export function MockAgenda() {
           <div key={d} className="text-center font-semibold text-muted-foreground py-1">{d}</div>
         ))}
         {hours.map((h, hi) => (
-          <>
-            <div key={`h-${h}`} className="text-right pr-1 text-muted-foreground font-mono">{h}</div>
+          <Fragment key={h}>
+            <div className="text-right pr-1 text-muted-foreground font-mono">{h}</div>
             {days.map((_, di) => {
               const cell = cells.find((c) => c.d === di && c.h === hi);
               return (
@@ -40,7 +40,7 @@ export function MockAgenda() {
                 </div>
               );
             })}
-          </>
+          </Fragment>
         ))}
       </div>
     </MockFrame>
