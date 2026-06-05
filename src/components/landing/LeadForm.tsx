@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
@@ -16,8 +15,9 @@ export function LeadForm() {
     cidade: "",
     perfil: "psicologo",
     atendimentos: "",
-    controle: "",
-    dificuldade: "",
+    agenda: "",
+    pagamentos: "",
+    incomoda: "",
   });
 
   function update<K extends keyof typeof form>(k: K, v: (typeof form)[K]) {
@@ -30,11 +30,10 @@ export function LeadForm() {
       toast.error("Preencha nome, WhatsApp e cidade.");
       return;
     }
-    if (!form.atendimentos || !form.controle) {
-      toast.error("Selecione as opções obrigatórias.");
+    if (!form.atendimentos || !form.agenda || !form.pagamentos || !form.incomoda) {
+      toast.error("Selecione todas as opções para personalizarmos seu acesso.");
       return;
     }
-    // No backend yet — store locally and show success
     console.log("APSI lead", form);
     setSubmitted(true);
     toast.success("Inscrição recebida. Entraremos em contato em breve.");
@@ -101,31 +100,48 @@ export function LeadForm() {
           </Select>
         </div>
         <div className="space-y-1.5">
-          <Label>Como controla pagamentos hoje?</Label>
-          <Select value={form.controle} onValueChange={(v) => update("controle", v)}>
+          <Label>Como controla a agenda hoje?</Label>
+          <Select value={form.agenda} onValueChange={(v) => update("agenda", v)}>
             <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
             <SelectContent>
-              <SelectItem value="planilha">Planilha</SelectItem>
+              <SelectItem value="google">Google Agenda</SelectItem>
               <SelectItem value="caderno">Caderno</SelectItem>
               <SelectItem value="sistema">Sistema</SelectItem>
               <SelectItem value="whatsapp">WhatsApp</SelectItem>
-              <SelectItem value="memoria">Memória</SelectItem>
               <SelectItem value="outro">Outro</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="dificuldade">Qual sua maior dificuldade hoje?</Label>
-        <Textarea
-          id="dificuldade"
-          value={form.dificuldade}
-          onChange={(e) => update("dificuldade", e.target.value)}
-          placeholder="Conte rapidamente o que mais te incomoda na rotina."
-          maxLength={600}
-          rows={3}
-        />
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div className="space-y-1.5">
+          <Label>Como controla pagamentos?</Label>
+          <Select value={form.pagamentos} onValueChange={(v) => update("pagamentos", v)}>
+            <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="planilha">Planilha</SelectItem>
+              <SelectItem value="caderno">Caderno</SelectItem>
+              <SelectItem value="sistema">Sistema</SelectItem>
+              <SelectItem value="memoria">Memória</SelectItem>
+              <SelectItem value="outro">Outro</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-1.5">
+          <Label>O que mais te incomoda hoje?</Label>
+          <Select value={form.incomoda} onValueChange={(v) => update("incomoda", v)}>
+            <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="agenda">Agenda</SelectItem>
+              <SelectItem value="faltas">Faltas e remarcações</SelectItem>
+              <SelectItem value="pagamentos">Pagamentos pendentes</SelectItem>
+              <SelectItem value="evolucoes">Evoluções clínicas</SelectItem>
+              <SelectItem value="whatsapp">WhatsApp</SelectItem>
+              <SelectItem value="outro">Outro</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <Button type="submit" size="lg" className="w-full">Quero testar o APSI</Button>
