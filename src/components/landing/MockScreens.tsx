@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Calendar, Users, Wallet, LayoutDashboard } from "lucide-react";
 
 export function MockAgenda() {
