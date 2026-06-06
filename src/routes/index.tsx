@@ -805,8 +805,8 @@ function Faq() {
 function FinalCta() {
   return (
     <section id="lead" className="py-20 sm:py-28">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-start">
-        <div>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 grid lg:grid-cols-5 gap-10 items-start">
+        <div className="lg:col-span-2">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Quer transformar sua rotina em um consultório mais organizado?
           </h2>
@@ -827,7 +827,7 @@ function FinalCta() {
             Beta inicial para psicólogos de Passo Fundo e região.
           </p>
         </div>
-        <div id="lead-form">
+        <div id="lead-form" className="lg:col-span-3">
           <LeadForm />
         </div>
       </div>
