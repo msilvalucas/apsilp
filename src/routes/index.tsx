@@ -75,7 +75,18 @@ function Landing() {
       <Pain />
       <Solution />
       <WhatsAppSection />
+      <MidCta
+        title="Quer ver o APSI funcionando na sua rotina?"
+        text="Teste uma forma mais simples de organizar agenda, pacientes, pagamentos e mensagens pelo WhatsApp."
+        cta="Quero testar o APSI"
+      />
       <AudioSection />
+      <MidCta
+        title="Registre evoluções com mais agilidade."
+        text="Transforme áudio em rascunho revisável e mantenha o histórico do paciente organizado."
+        cta="Entrar no beta"
+        variant="soft"
+      />
       <BookingSection />
       <Compare />
       <Screens />
@@ -87,6 +98,31 @@ function Landing() {
       <FinalCta />
       <Footer />
     </div>
+  );
+}
+
+/* ---------- Mid CTA ---------- */
+function MidCta({ title, text, cta, variant = "card" }: { title: string; text: string; cta: string; variant?: "card" | "soft" }) {
+  return (
+    <section className="py-10 sm:py-14">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div
+          className={`rounded-2xl border p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 ${
+            variant === "soft"
+              ? "bg-primary-soft/60 border-primary/15"
+              : "bg-card border-border"
+          }`}
+        >
+          <div className="flex-1">
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight">{title}</h3>
+            <p className="mt-1.5 text-sm text-muted-foreground">{text}</p>
+          </div>
+          <Button asChild size="lg" className="shrink-0">
+            <a href="#lead">{cta}</a>
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 }
 
