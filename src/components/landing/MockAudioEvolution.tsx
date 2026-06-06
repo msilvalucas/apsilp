@@ -2,9 +2,9 @@ import { Mic, FileText, Edit3, Save } from "lucide-react";
 
 const steps = [
   { icon: Mic, title: "Gravar ou enviar áudio", text: "Capture o resumo da sessão pelo app ou WhatsApp." },
-  { icon: FileText, title: "Transcrição automática", text: "O APSI converte o áudio em texto em segundos." },
-  { icon: Edit3, title: "Revisar e editar", text: "Você ajusta, complementa e dá o tom clínico." },
-  { icon: Save, title: "Salvar como evolução", text: "Texto final vai para o histórico do paciente." },
+  { icon: FileText, title: "Rascunho transcrito", text: "O APSI transforma o áudio em um rascunho de texto para revisão." },
+  { icon: Edit3, title: "Revisar e editar", text: "Você sempre revisa, ajusta e dá o tom clínico antes de salvar." },
+  { icon: Save, title: "Salvar como evolução", text: "Texto final, revisado por você, vai para o histórico do paciente." },
 ];
 
 export function MockAudioEvolution() {

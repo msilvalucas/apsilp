@@ -49,13 +49,17 @@ import { Toaster } from "@/components/ui/sonner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "APSI — Controle agenda, pacientes e recebimentos com apoio do WhatsApp" },
+      { title: "APSI | Sistema para psicólogos com agenda, financeiro e WhatsApp" },
       {
         name: "description",
         content:
-          "O APSI ajuda psicólogos com agenda ativa a organizar sessões, faltas, pagamentos e evoluções em um só lugar — com lembretes automáticos, Pix e evolução por áudio com revisão. Beta em Passo Fundo e região.",
+          "Controle agenda, pacientes, pagamentos e evoluções em um só lugar. APSI é um sistema para psicólogos com apoio do WhatsApp, Pix e evolução por áudio com revisão.",
       },
+      { property: "og:title", content: "APSI | Sistema para psicólogos com agenda, financeiro e WhatsApp" },
+      { property: "og:description", content: "Controle agenda, pacientes, pagamentos e evoluções em um só lugar — com apoio do WhatsApp, Pix e evolução por áudio com revisão." },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://apsilpbeta.lovable.app/" }],
   }),
   component: Landing,
 });
@@ -71,7 +75,18 @@ function Landing() {
       <Pain />
       <Solution />
       <WhatsAppSection />
+      <MidCta
+        title="Quer ver o APSI funcionando na sua rotina?"
+        text="Teste uma forma mais simples de organizar agenda, pacientes, pagamentos e mensagens pelo WhatsApp."
+        cta="Quero testar o APSI"
+      />
       <AudioSection />
+      <MidCta
+        title="Registre evoluções com mais agilidade."
+        text="Transforme áudio em rascunho revisável e mantenha o histórico do paciente organizado."
+        cta="Entrar no beta"
+        variant="soft"
+      />
       <BookingSection />
       <Compare />
       <Screens />
@@ -83,6 +98,31 @@ function Landing() {
       <FinalCta />
       <Footer />
     </div>
+  );
+}
+
+/* ---------- Mid CTA ---------- */
+function MidCta({ title, text, cta, variant = "card" }: { title: string; text: string; cta: string; variant?: "card" | "soft" }) {
+  return (
+    <section className="py-10 sm:py-14">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div
+          className={`rounded-2xl border p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 ${
+            variant === "soft"
+              ? "bg-primary-soft/60 border-primary/15"
+              : "bg-card border-border"
+          }`}
+        >
+          <div className="flex-1">
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight">{title}</h3>
+            <p className="mt-1.5 text-sm text-muted-foreground">{text}</p>
+          </div>
+          <Button asChild size="lg" className="shrink-0">
+            <a href="#lead">{cta}</a>
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -130,11 +170,12 @@ function Hero() {
             <span className="text-primary">com apoio do WhatsApp</span>.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-            O APSI ajuda psicólogos com agenda ativa a organizar sessões, faltas,
-            pagamentos e evoluções em um só lugar — com lembretes automáticos, Pix
-            e registro de evolução por áudio com revisão.
+            Organize sessões, faltas, pagamentos e evoluções em um só lugar.
           </p>
-          <p className="mt-3 text-sm text-muted-foreground max-w-xl">
+          <p className="mt-2 text-lg text-muted-foreground max-w-xl">
+            Com lembretes pelo WhatsApp, Pix e registro de evolução por áudio com revisão.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground max-w-xl">
             Feito para quem já atende toda semana e quer mais controle sem depender de
             caderno, planilhas e conversas perdidas no WhatsApp.
           </p>
@@ -339,7 +380,8 @@ function AudioSection() {
               Terminou a sessão? Registre a evolução por áudio.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Envie ou grave um áudio, revise a transcrição e salve o rascunho no histórico do paciente.
+              Envie ou grave um áudio e o APSI gera um rascunho de texto. Você revisa,
+              ajusta e salva no histórico do paciente.
             </p>
             <div className="mt-5 flex items-start gap-2 rounded-lg bg-warning-soft/60 border border-warning/30 p-3 text-xs text-warning-foreground">
               <ShieldCheck className="size-4 shrink-0 mt-0.5" />
@@ -489,10 +531,10 @@ function Screens() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Veja o APSI na prática.
+            Veja o APSI funcionando na prática.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Seis áreas centrais do produto, pensadas para a rotina real de quem atende toda semana.
+            Mockups das principais telas — pensadas para a rotina real de quem atende toda semana.
           </p>
         </div>
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -678,37 +720,27 @@ function ClinicSection() {
 
 /* ---------- Roadmap ---------- */
 function Roadmap() {
-  const items = [
-    { icon: FileText, title: "Documentos e recibos em PDF" },
-    { icon: Receipt, title: "Exportação Excel" },
-    { icon: ClipboardList, title: "Anexos no prontuário" },
-    { icon: Wallet, title: "Conciliação financeira" },
-    { icon: Store, title: "Marketplace regional" },
-    { icon: HandCoins, title: "Parceiros de crédito" },
-    { icon: QrCode, title: "Open Finance no futuro" },
+  const chips = [
+    "Documentos e recibos",
+    "Clínicas",
+    "Marketplace regional",
+    "Conciliação financeira",
+    "Open Finance no futuro",
   ];
   return (
-    <section className="py-20 sm:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Roadmap</span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight">O que vem depois</h2>
-          <p className="mt-3 text-muted-foreground">
-            O APSI começa pelo controle real da rotina. As próximas camadas serão evoluídas
-            com base no uso dos primeiros profissionais e clínicas.
-          </p>
-        </div>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {items.map(({ icon: Icon, title }) => (
-            <div key={title} className="flex items-center gap-3 rounded-xl border border-dashed border-border bg-card/60 p-4">
-              <div className="size-9 rounded-lg bg-secondary text-muted-foreground flex items-center justify-center shrink-0">
-                <Icon className="size-4" />
-              </div>
-              <div>
-                <p className="text-sm font-medium">{title}</p>
-                <p className="text-[11px] text-muted-foreground">Em estudo · futuro</p>
-              </div>
-            </div>
+    <section className="py-12 sm:py-16">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Em evolução</span>
+        <h2 className="mt-2 text-2xl font-bold tracking-tight">O que vem depois do beta</h2>
+        <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">
+          Depois do beta, o APSI deve evoluir com documentos, recibos, clínicas, marketplace regional
+          e conciliação financeira — sempre com base no uso real dos primeiros profissionais.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          {chips.map((c) => (
+            <span key={c} className="text-xs font-medium px-3 py-1.5 rounded-full border border-dashed border-border bg-card/60 text-muted-foreground">
+              {c}
+            </span>
           ))}
         </div>
       </div>

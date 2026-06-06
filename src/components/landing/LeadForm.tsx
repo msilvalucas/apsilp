@@ -13,11 +13,12 @@ export function LeadForm() {
     nome: "",
     whatsapp: "",
     cidade: "",
-    perfil: "psicologo",
+    perfil: "solo",
     atendimentos: "",
     agenda: "",
     pagamentos: "",
     incomoda: "",
+    demo: "",
   });
 
   function update<K extends keyof typeof form>(k: K, v: (typeof form)[K]) {
@@ -30,7 +31,7 @@ export function LeadForm() {
       toast.error("Preencha nome, WhatsApp e cidade.");
       return;
     }
-    if (!form.atendimentos || !form.agenda || !form.pagamentos || !form.incomoda) {
+    if (!form.atendimentos || !form.agenda || !form.pagamentos || !form.incomoda || !form.demo) {
       toast.error("Selecione todas as opções para personalizarmos seu acesso.");
       return;
     }
@@ -73,14 +74,18 @@ export function LeadForm() {
         </div>
         <div className="space-y-1.5">
           <Label>Você é</Label>
-          <RadioGroup value={form.perfil} onValueChange={(v) => update("perfil", v)} className="flex gap-4 pt-2">
+          <RadioGroup value={form.perfil} onValueChange={(v) => update("perfil", v)} className="flex flex-wrap gap-x-4 gap-y-2 pt-2">
             <div className="flex items-center gap-2">
-              <RadioGroupItem value="psicologo" id="r-psi" />
-              <Label htmlFor="r-psi" className="font-normal">Psicólogo(a)</Label>
+              <RadioGroupItem value="solo" id="r-solo" />
+              <Label htmlFor="r-solo" className="font-normal">Psicólogo(a) solo</Label>
             </div>
             <div className="flex items-center gap-2">
               <RadioGroupItem value="clinica" id="r-cli" />
               <Label htmlFor="r-cli" className="font-normal">Clínica</Label>
+            </div>
+            <div className="flex items-center gap-2">
+              <RadioGroupItem value="outro" id="r-outro" />
+              <Label htmlFor="r-outro" className="font-normal">Outro</Label>
             </div>
           </RadioGroup>
         </div>
@@ -137,16 +142,28 @@ export function LeadForm() {
               <SelectItem value="faltas">Faltas e remarcações</SelectItem>
               <SelectItem value="pagamentos">Pagamentos pendentes</SelectItem>
               <SelectItem value="evolucoes">Evoluções clínicas</SelectItem>
-              <SelectItem value="whatsapp">WhatsApp</SelectItem>
+              <SelectItem value="whatsapp">WhatsApp desorganizado</SelectItem>
               <SelectItem value="outro">Outro</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </div>
 
+      <div className="space-y-1.5">
+        <Label>Você toparia uma demonstração de 15 minutos?</Label>
+        <Select value={form.demo} onValueChange={(v) => update("demo", v)}>
+          <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+          <SelectContent>
+            <SelectItem value="sim">Sim</SelectItem>
+            <SelectItem value="sozinho">Prefiro testar sozinho</SelectItem>
+            <SelectItem value="info">Quero só receber informações</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
       <Button type="submit" size="lg" className="w-full">Quero testar o APSI</Button>
       <p className="text-[11px] text-muted-foreground text-center">
-        Não pedimos CPF, CRP ou endereço. Seus dados serão usados apenas para contato sobre o beta.
+        Usaremos seus dados apenas para entrar em contato sobre o beta do APSI.
       </p>
     </form>
   );
