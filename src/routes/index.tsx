@@ -720,37 +720,27 @@ function ClinicSection() {
 
 /* ---------- Roadmap ---------- */
 function Roadmap() {
-  const items = [
-    { icon: FileText, title: "Documentos e recibos em PDF" },
-    { icon: Receipt, title: "Exportação Excel" },
-    { icon: ClipboardList, title: "Anexos no prontuário" },
-    { icon: Wallet, title: "Conciliação financeira" },
-    { icon: Store, title: "Marketplace regional" },
-    { icon: HandCoins, title: "Parceiros de crédito" },
-    { icon: QrCode, title: "Open Finance no futuro" },
+  const chips = [
+    "Documentos e recibos",
+    "Clínicas",
+    "Marketplace regional",
+    "Conciliação financeira",
+    "Open Finance no futuro",
   ];
   return (
-    <section className="py-20 sm:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Roadmap</span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight">O que vem depois</h2>
-          <p className="mt-3 text-muted-foreground">
-            O APSI começa pelo controle real da rotina. As próximas camadas serão evoluídas
-            com base no uso dos primeiros profissionais e clínicas.
-          </p>
-        </div>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {items.map(({ icon: Icon, title }) => (
-            <div key={title} className="flex items-center gap-3 rounded-xl border border-dashed border-border bg-card/60 p-4">
-              <div className="size-9 rounded-lg bg-secondary text-muted-foreground flex items-center justify-center shrink-0">
-                <Icon className="size-4" />
-              </div>
-              <div>
-                <p className="text-sm font-medium">{title}</p>
-                <p className="text-[11px] text-muted-foreground">Em estudo · futuro</p>
-              </div>
-            </div>
+    <section className="py-12 sm:py-16">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Em evolução</span>
+        <h2 className="mt-2 text-2xl font-bold tracking-tight">O que vem depois do beta</h2>
+        <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">
+          Depois do beta, o APSI deve evoluir com documentos, recibos, clínicas, marketplace regional
+          e conciliação financeira — sempre com base no uso real dos primeiros profissionais.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          {chips.map((c) => (
+            <span key={c} className="text-xs font-medium px-3 py-1.5 rounded-full border border-dashed border-border bg-card/60 text-muted-foreground">
+              {c}
+            </span>
           ))}
         </div>
       </div>
