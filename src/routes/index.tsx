@@ -170,11 +170,12 @@ function Hero() {
             <span className="text-primary">com apoio do WhatsApp</span>.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-            O APSI ajuda psicólogos com agenda ativa a organizar sessões, faltas,
-            pagamentos e evoluções em um só lugar — com lembretes automáticos, Pix
-            e registro de evolução por áudio com revisão.
+            Organize sessões, faltas, pagamentos e evoluções em um só lugar.
           </p>
-          <p className="mt-3 text-sm text-muted-foreground max-w-xl">
+          <p className="mt-2 text-lg text-muted-foreground max-w-xl">
+            Com lembretes pelo WhatsApp, Pix e registro de evolução por áudio com revisão.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground max-w-xl">
             Feito para quem já atende toda semana e quer mais controle sem depender de
             caderno, planilhas e conversas perdidas no WhatsApp.
           </p>
