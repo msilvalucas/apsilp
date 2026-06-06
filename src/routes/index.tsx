@@ -792,7 +792,7 @@ function Faq() {
           {items.map((it, i) => (
             <AccordionItem key={i} value={`i-${i}`} className="border-border">
               <AccordionTrigger className="text-left text-base font-semibold">{it.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{it.a}</AccordionContent>
+              <AccordionContent className="text-muted-foreground space-y-3 whitespace-pre-line">{it.a}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
