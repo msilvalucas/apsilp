@@ -531,10 +531,10 @@ function Screens() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Veja o APSI na prática.
+            Veja o APSI funcionando na prática.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Seis áreas centrais do produto, pensadas para a rotina real de quem atende toda semana.
+            Mockups das principais telas — pensadas para a rotina real de quem atende toda semana.
           </p>
         </div>
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
