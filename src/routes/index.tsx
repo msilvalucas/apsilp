@@ -49,13 +49,17 @@ import { Toaster } from "@/components/ui/sonner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "APSI — Controle agenda, pacientes e recebimentos com apoio do WhatsApp" },
+      { title: "APSI | Sistema para psicólogos com agenda, financeiro e WhatsApp" },
       {
         name: "description",
         content:
-          "O APSI ajuda psicólogos com agenda ativa a organizar sessões, faltas, pagamentos e evoluções em um só lugar — com lembretes automáticos, Pix e evolução por áudio com revisão. Beta em Passo Fundo e região.",
+          "Controle agenda, pacientes, pagamentos e evoluções em um só lugar. APSI é um sistema para psicólogos com apoio do WhatsApp, Pix e evolução por áudio com revisão.",
       },
+      { property: "og:title", content: "APSI | Sistema para psicólogos com agenda, financeiro e WhatsApp" },
+      { property: "og:description", content: "Controle agenda, pacientes, pagamentos e evoluções em um só lugar — com apoio do WhatsApp, Pix e evolução por áudio com revisão." },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://apsilpbeta.lovable.app/" }],
   }),
   component: Landing,
 });
