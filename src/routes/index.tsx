@@ -777,7 +777,7 @@ function Faq() {
     },
     {
       q: "Meus dados ficam seguros?",
-      a: "O APSI foi construído com separação de dados por profissional, políticas de acesso e filtros para dados sensíveis. Recursos adicionais de segurança e criptografia seguem no roadmap técnico.",
+      a: "Sim. O APSI utiliza autenticação segura, controle de acesso e separação dos dados por profissional.\n\nAs informações de pacientes, sessões e evoluções ficam vinculadas à conta do psicólogo responsável. Durante o beta, seguimos aprimorando recursos de privacidade, backup e exportação de dados.",
     },
     {
       q: "Preciso cadastrar cartão para testar?",
