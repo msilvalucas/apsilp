@@ -380,7 +380,8 @@ function AudioSection() {
               Terminou a sessão? Registre a evolução por áudio.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Envie ou grave um áudio, revise a transcrição e salve o rascunho no histórico do paciente.
+              Envie ou grave um áudio e o APSI gera um rascunho de texto. Você revisa,
+              ajusta e salva no histórico do paciente.
             </p>
             <div className="mt-5 flex items-start gap-2 rounded-lg bg-warning-soft/60 border border-warning/30 p-3 text-xs text-warning-foreground">
               <ShieldCheck className="size-4 shrink-0 mt-0.5" />
