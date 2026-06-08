@@ -80,19 +80,19 @@ function pushEvent(event, params) {
 (function () {
   document.querySelectorAll('a[data-event="whatsapp"]').forEach(function (a) {
     a.addEventListener('click', function () {
-      pushEvent('whatsapp_click', { cta_label: a.textContent.trim() });
+      pushEvent('whatsapp_click', { cta_label: a.textContent.trim().replace(/\s+/g, ' '), cta_location: a.dataset.location || 'unknown' });
     });
   });
 
   document.querySelectorAll('a[data-event="demo"]').forEach(function (a) {
     a.addEventListener('click', function () {
-      pushEvent('demo_click', { cta_label: a.textContent.trim() });
+      pushEvent('demo_click', { cta_label: a.textContent.trim().replace(/\s+/g, ' '), cta_location: a.dataset.location || 'unknown' });
     });
   });
 
   document.querySelectorAll('a[data-event="cta"]').forEach(function (a) {
     a.addEventListener('click', function () {
-      pushEvent('cta_click', { cta_label: a.textContent.trim() });
+      pushEvent('cta_click', { cta_label: a.textContent.trim().replace(/\s+/g, ' '), cta_location: a.dataset.location || 'unknown' });
     });
   });
 
@@ -270,7 +270,15 @@ var DEMO_MAP = {
   function showSuccess(nome) {
     var firstName = nome.split(' ')[0];
     document.getElementById('success-name').textContent = firstName;
-    pushEvent('lead_form_submit');
+    pushEvent('lead_form_submit', {
+      form_name:            'lead_form',
+      lead_type:            PERFIL_MAP[perfil]           || 'other',
+      monthly_appointments: ATEND_MAP[atend]              || atend,
+      agenda_control:       AGENDA_MAP[agenda]            || agenda,
+      payment_control:      PAGAMENTOS_MAP[pagamentos]    || pagamentos,
+      main_pain:            INCOMODA_MAP[incomoda]        || incomoda,
+      demo_interest:        DEMO_MAP[demo]                || demo,
+    });
     form.style.display = 'none';
     if (success) {
       success.classList.add('is-visible');
