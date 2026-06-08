@@ -11,6 +11,11 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#1675F2">
 
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
   <!-- Open Graph -->
   <meta property="og:title" content="APSI | Sistema para psicólogos com agenda, financeiro e WhatsApp">
   <meta property="og:description"
@@ -18,6 +23,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://useapsi.com.br/">
   <meta property="og:image" content="https://useapsi.com.br/assets/img/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/webp">
   <meta property="og:locale" content="pt_BR">
 
   <!-- Twitter Card -->
@@ -50,16 +58,14 @@
         "@type": "Organization",
         "name": "APSI",
         "url": "https://useapsi.com.br",
-        "logo": "https://useapsi.com.br/assets/img/og-image.webp"
+        "logo": "https://useapsi.com.br/assets/img/logo.png"
       }
     ]
   }
   </script>
 
-  <!-- Google Fonts: Manrope -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -68,24 +74,19 @@
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
+          Date.now(), event: 'gtm.js'
       }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        j = d.createElement(s), dl = l === 'dataLayer' ? '' : '&l=' + l; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-N9QN7FMZ');</script>
+    })(globalThis, document, 'script', 'dataLayer', 'GTM-N9QN7FMZ');</script>
   <!-- End Google Tag Manager -->
-
-  <!-- TODO: Add GA4 snippet here (via GTM recommended) -->
-  <!-- TODO: Add Meta Pixel here -->
-  <!-- TODO: Add Microsoft Clarity here -->
-  <!-- TODO: Add Hotjar here if needed -->
 </head>
 
 <body>
 
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9QN7FMZ" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
+      title="Google Tag Manager" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- Skip link -->
@@ -119,16 +120,16 @@
       </button>
     </div>
 
-    <div id="nav-mobile" class="container nav-mobile" role="navigation" aria-label="Menu mobile">
+    <nav id="nav-mobile" class="container nav-mobile" aria-label="Menu mobile">
       <a href="#solucao">Solução</a>
       <a href="#whatsapp">WhatsApp</a>
       <a href="#evolucao">Evolução</a>
       <a href="#telas">Telas</a>
       <a href="#preco">Preço</a>
       <a href="#faq">FAQ</a>
-      <a href="#lead" class="btn btn--primary btn--sm" style="margin-top:0.5rem;align-self:flex-start"
+      <a href="#lead" class="btn btn--primary btn--sm btn--nav"
         data-event="cta" data-location="nav">Quero testar</a>
-    </div>
+    </nav>
   </header>
 
   <!-- ============================================================
@@ -139,7 +140,7 @@
     <!-- ============================================================
      HERO
      ============================================================ -->
-    <section id="top" class="hero">
+    <section id="hero" class="hero">
       <div class="hero-gradient" aria-hidden="true"></div>
       <div class="container hero-inner">
         <div class="grid-hero">
@@ -161,7 +162,7 @@
             </h1>
 
             <p class="hero-sub">Organize sessões, faltas, pagamentos e evoluções em um só lugar.</p>
-            <p class="hero-sub" style="margin-top:0.5rem">Com lembretes pelo WhatsApp, Pix e registro de evolução por
+            <p class="hero-sub mt-2">Com lembretes pelo WhatsApp, Pix e registro de evolução por
               áudio com revisão.</p>
             <p class="hero-desc">Feito para quem já atende toda semana e quer mais controle sem depender de caderno,
               planilhas e conversas perdidas no WhatsApp.</p>
@@ -210,7 +211,7 @@
           <div class="hero-mockup lg-pl">
             <div class="mock-dashboard-wrap">
               <div class="mock-dashboard-glow" aria-hidden="true"></div>
-              <div class="mock-dashboard" role="img" aria-label="Prévia do dashboard do APSI">
+              <div class="mock-dashboard" aria-hidden="true">
                 <!-- Browser bar -->
                 <div class="mock-browser-bar">
                   <div class="mock-dot mock-dot--red"></div>
@@ -347,7 +348,7 @@
     <section class="section">
       <div class="container--md container text-center">
         <h2 class="section-h2">Sua rotina está mais espalhada do que deveria?</h2>
-        <p class="section-lead" style="margin-inline:auto">
+        <p class="section-lead section-lead--center">
           Quando a agenda cresce, controlar tudo de cabeça começa a ficar perigoso.
           Sessões ficam em um lugar, pacientes no WhatsApp, pagamentos na planilha,
           faltas na memória e evoluções para registrar depois.
@@ -433,7 +434,7 @@
      ============================================================ -->
     <section id="solucao" class="section section--alt">
       <div class="container">
-        <div style="max-width:48rem">
+        <div class="section-header section-header--lg">
           <h2 class="section-h2">Uma central simples para sua rotina clínica e financeira.</h2>
           <p class="section-lead">
             Cada sessão pode ter paciente, status, valor, pagamento, lembrete e evolução vinculados.
@@ -720,7 +721,7 @@
 
           <!-- Right: MockWhatsApp -->
           <div class="lg-pl">
-            <div class="mock-whatsapp" role="img" aria-label="Prévia do chat do APSI no WhatsApp">
+            <div class="mock-whatsapp" aria-hidden="true">
               <div class="mock-wa-header">
                 <div class="mock-wa-avatar">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -783,10 +784,10 @@
     <!-- ============================================================
      MID CTA #1
      ============================================================ -->
-    <section class="section--sm" style="padding-block:2.5rem 3.5rem">
+    <section class="section--mid-cta">
       <div class="container--md container">
         <div class="mid-cta-box">
-          <div style="flex:1">
+          <div class="flex-1">
             <p class="mid-cta-title">Quer ver o APSI funcionando na sua rotina?</p>
             <p class="mid-cta-text">Teste uma forma mais simples de organizar agenda, pacientes, pagamentos e mensagens
               pelo WhatsApp.</p>
@@ -804,7 +805,7 @@
         <div class="grid-hero">
           <!-- Left: MockAudioEvolution -->
           <div class="lg-order-1">
-            <div class="mock-frame" role="img" aria-label="Prévia do recurso de evolução por áudio do APSI">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -974,10 +975,10 @@
     <!-- ============================================================
      MID CTA #2 (soft)
      ============================================================ -->
-    <section class="section--sm" style="padding-block:2.5rem 3.5rem">
+    <section class="section--mid-cta">
       <div class="container--md container">
         <div class="mid-cta-box mid-cta-box--soft">
-          <div style="flex:1">
+          <div class="flex-1">
             <p class="mid-cta-title">Registre evoluções com mais agilidade.</p>
             <p class="mid-cta-text">Transforme áudio em rascunho revisável e mantenha o histórico do paciente
               organizado.</p>
@@ -1067,14 +1068,14 @@
               </li>
             </ul>
 
-            <p style="margin-top:1.25rem;font-size:0.75rem;color:var(--color-text-secondary)">
+            <p class="text-note mt-5">
               Disponível em fase beta, com regras de disponibilidade e conflitos.
             </p>
           </div>
 
           <!-- Right: MockBooking -->
           <div class="lg-pl">
-            <div class="mock-frame" role="img" aria-label="Prévia da agenda pública do APSI">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1129,7 +1130,7 @@
      ============================================================ -->
     <section class="section section--alt">
       <div class="container--md container">
-        <div style="max-width:32rem;margin-bottom:2.5rem">
+        <div class="section-header section-header--mb">
           <h2 class="section-h2">Sem o APSI vs. com o APSI</h2>
           <p class="section-lead">A mesma rotina, organizada de outro jeito.</p>
         </div>
@@ -1251,7 +1252,7 @@
      ============================================================ -->
     <section id="telas" class="section">
       <div class="container">
-        <div style="max-width:32rem">
+        <div class="section-header">
           <h2 class="section-h2">Veja o APSI funcionando na prática.</h2>
           <p class="section-lead">Mockups das principais telas — pensadas para a rotina real de quem atende toda semana.
           </p>
@@ -1261,7 +1262,7 @@
 
           <!-- 1. Dashboard -->
           <div>
-            <div class="mock-frame" role="img" aria-label="Mockup do dashboard">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1305,7 +1306,7 @@
 
           <!-- 2. Agenda -->
           <div>
-            <div class="mock-frame" role="img" aria-label="Mockup da agenda semanal">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1389,7 +1390,7 @@
 
           <!-- 3. Pacientes -->
           <div>
-            <div class="mock-frame" role="img" aria-label="Mockup de lista de pacientes">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1459,7 +1460,7 @@
 
           <!-- 4. Financeiro -->
           <div>
-            <div class="mock-frame" role="img" aria-label="Mockup do financeiro">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1509,7 +1510,7 @@
 
           <!-- 5. WhatsApp -->
           <div>
-            <div class="mock-frame" role="img" aria-label="Mockup do WhatsApp">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header" style="background:#075E54">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1547,7 +1548,7 @@
 
           <!-- 6. Evoluções -->
           <div>
-            <div class="mock-frame" role="img" aria-label="Mockup do registro de evolução">
+            <div class="mock-frame" aria-hidden="true">
               <div class="mock-frame-header">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1774,7 +1775,7 @@
             <span class="tag">Sem cartão no teste</span>
           </div>
 
-          <a href="#lead" class="btn btn--primary btn--lg btn--full" style="margin-top:1.75rem" data-event="cta" data-location="pricing">Quero
+          <a href="#lead" class="btn btn--primary btn--lg btn--full mt-7" data-event="cta" data-location="pricing">Quero
             testar o APSI</a>
 
           <p class="pricing-disclaimer">
@@ -1789,7 +1790,7 @@
      ============================================================ -->
     <section class="section section--alt">
       <div class="container--md container">
-        <div style="max-width:32rem">
+        <div class="section-header">
           <span class="section-label section-label--muted">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1803,7 +1804,7 @@
             </svg>
             Clínicas · beta
           </span>
-          <h2 class="section-h2" style="margin-top:0.5rem">Tem uma clínica pequena?</h2>
+          <h2 class="section-h2 section-h2--tight">Tem uma clínica pequena?</h2>
           <p class="section-lead">
             O APSI também está sendo preparado para clínicas com múltiplos profissionais, secretária,
             salas, repasses e visão de agenda por equipe.
@@ -1893,14 +1894,11 @@
     <!-- ============================================================
      ROADMAP
      ============================================================ -->
-    <section class="section--sm" style="padding-block:3rem 4rem">
+    <section class="section--roadmap">
       <div class="container--sm container text-center">
-        <span
-          style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--color-text-secondary)">Em
-          evolução</span>
-        <h2 class="section-h2" style="margin-top:0.5rem;font-size:1.5rem">O que vem depois do beta</h2>
-        <p
-          style="margin-top:0.75rem;font-size:0.875rem;color:var(--color-text-secondary);max-width:36rem;margin-inline:auto">
+        <span class="section-label section-label--muted">Em evolução</span>
+        <h2 class="section-h2 section-h2--sm">O que vem depois do beta</h2>
+        <p class="section-lead section-lead--sm section-lead--center mt-3">
           Depois do beta, o APSI deve evoluir com documentos, recibos, clínicas, marketplace regional
           e conciliação financeira — sempre com base no uso real dos primeiros profissionais.
         </p>
@@ -1921,9 +1919,9 @@
       <div class="container--sm container">
         <h2 class="section-h2 text-center">Perguntas frequentes</h2>
 
-        <div class="faq-list" role="list">
+        <ul class="faq-list">
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-btn-1">
               O APSI envia mensagens automaticamente pelo WhatsApp?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1931,15 +1929,15 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
+            <section class="faq-answer" id="faq-answer-1" aria-labelledby="faq-btn-1">
               <div class="faq-answer-inner">
                 Sim, o APSI possui automações e lembretes via WhatsApp. Durante a fase beta, essas automações serão
                 configuradas com cuidado para manter controle e evitar envios indevidos.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">
               A evolução por áudio substitui meu julgamento clínico?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1947,15 +1945,15 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
+            <section class="faq-answer" id="faq-answer-2" aria-labelledby="faq-btn-2">
               <div class="faq-answer-inner">
                 Não. A transcrição gera um rascunho para revisão. O profissional sempre deve revisar e editar antes de
                 salvar como evolução.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">
               O APSI emite nota fiscal ou Receita Saúde?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1963,14 +1961,14 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
+            <section class="faq-answer" id="faq-answer-3" aria-labelledby="faq-btn-3">
               <div class="faq-answer-inner">
                 Ainda não. Recursos de documentos, recibos e emissão fiscal fazem parte do roadmap futuro.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">
               O APSI é para clínicas?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1978,15 +1976,15 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4">
+            <section class="faq-answer" id="faq-answer-4" aria-labelledby="faq-btn-4">
               <div class="faq-answer-inner">
                 A primeira experiência comercial é focada em psicólogos autônomos. Clínicas pequenas entram em fase beta
                 com recursos como membros, salas, repasses e agenda por profissional.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-btn-5">
               O APSI tem Pix?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1994,14 +1992,14 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-btn-5">
+            <section class="faq-answer" id="faq-answer-5" aria-labelledby="faq-btn-5">
               <div class="faq-answer-inner">
                 Sim. O APSI pode gerar QR Code Pix estático e apoiar o controle de pagamentos e pendências.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6" id="faq-btn-6">
               O paciente consegue agendar por um link?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2009,14 +2007,14 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-btn-6">
+            <section class="faq-answer" id="faq-answer-6" aria-labelledby="faq-btn-6">
               <div class="faq-answer-inner">
                 Sim, o APSI possui agenda pública por link em fase beta, respeitando disponibilidade e conflitos.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7" id="faq-btn-7">
               Meus dados ficam seguros?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2024,17 +2022,17 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-btn-7">
+            <section class="faq-answer" id="faq-answer-7" aria-labelledby="faq-btn-7">
               <div class="faq-answer-inner">
                 Sim. O APSI utiliza autenticação segura, controle de acesso e separação dos dados por profissional.
 
                 As informações de pacientes, sessões e evoluções ficam vinculadas à conta do psicólogo responsável.
                 Durante o beta, seguimos aprimorando recursos de privacidade, backup e exportação de dados.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-          <div class="faq-item" role="listitem">
+          <li class="faq-item">
             <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8" id="faq-btn-8">
               Preciso cadastrar cartão para testar?
               <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2042,21 +2040,21 @@
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-btn-8">
+            <section class="faq-answer" id="faq-answer-8" aria-labelledby="faq-btn-8">
               <div class="faq-answer-inner">
                 Não obrigatoriamente durante a fase beta. O objetivo é validar o uso com profissionais selecionados.
               </div>
-            </div>
-          </div>
+            </section>
+          </li>
 
-        </div><!-- /faq-list -->
+        </ul><!-- /faq-list -->
       </div>
     </section>
 
     <!-- ============================================================
      FINAL CTA + LEAD FORM
      ============================================================ -->
-    <section id="lead" class="section" style="padding-block:5rem 7rem">
+    <section id="lead" class="section section--cta">
       <div class="container">
         <div class="grid-cta">
 
@@ -2067,16 +2065,15 @@
               Entre na fase beta do APSI e teste uma forma mais simples de controlar agenda,
               pacientes, recebimentos, WhatsApp e evoluções.
             </p>
-            <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem">
+            <div class="cta-buttons">
               <a href="#lead-form" class="btn btn--primary btn--lg" data-event="cta" data-location="bottom_cta">Quero testar o APSI</a>
               <a href="https://wa.me/5554999922776?text=Quero%20saber%20mais%20sobre%20o%20APSI"
                 class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer" data-event="whatsapp" data-location="bottom_cta">Falar
                 pelo WhatsApp</a>
             </div>
-            <p
-              style="margin-top:1.25rem;font-size:0.75rem;color:var(--color-text-secondary);display:flex;align-items:center;gap:0.375rem">
+            <p class="trust-note">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--color-primary)">
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="icon--primary">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                 <path d="m9 12 2 2 4-4" />
               </svg>
@@ -2110,24 +2107,73 @@
                 <div class="form-field">
                   <label class="form-label" for="f-nome">Nome</label>
                   <input class="form-input" type="text" id="f-nome" name="nome" placeholder="Seu nome" maxlength="120"
-                    autocomplete="name" required>
+                    autocomplete="name" required aria-describedby="f-nome-error">
+                  <span class="form-field-error" id="f-nome-error" role="alert"></span>
                 </div>
                 <div class="form-field">
                   <label class="form-label" for="f-whatsapp">WhatsApp</label>
                   <input class="form-input" type="tel" id="f-whatsapp" name="whatsapp" placeholder="(54) 99999-9999"
-                    maxlength="20" autocomplete="tel">
+                    maxlength="20" autocomplete="tel" required aria-describedby="f-whatsapp-error">
+                  <span class="form-field-error" id="f-whatsapp-error" role="alert"></span>
                 </div>
               </div>
 
-              <div class="form-grid-2" style="margin-top:1rem">
+              <div class="form-grid-2 mt-4">
                 <div class="form-field">
-                  <label class="form-label" for="f-cidade">Cidade</label>
-                  <input class="form-input" type="text" id="f-cidade" name="cidade" placeholder="Ex.: Passo Fundo - RS"
-                    maxlength="100" autocomplete="address-level2">
+                  <label class="form-label" for="f-estado">Estado / Cidade</label>
+                  <select class="form-select" id="f-estado">
+                    <option value="">Selecione o estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+                  <div class="city-combobox" id="f-cidade-wrap">
+                    <button type="button" class="city-trigger" id="f-cidade-trigger" disabled
+                      aria-haspopup="listbox" aria-expanded="false" aria-describedby="f-cidade-error">
+                      <span class="city-trigger-text city-trigger-text--placeholder" id="f-cidade-display">Selecione a cidade</span>
+                      <svg class="city-trigger-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="m6 9 6 6 6-6"/>
+                      </svg>
+                    </button>
+                    <div class="city-panel" id="f-cidade-panel" hidden>
+                      <div class="city-search-wrap">
+                        <input type="text" class="city-search" id="f-cidade-search"
+                          placeholder="Digite para buscar..." autocomplete="off" aria-controls="f-cidade-list">
+                      </div>
+                      <ul id="f-cidade-list" role="listbox" class="city-dropdown" aria-label="Cidades"></ul>
+                    </div>
+                  </div>
+                  <input type="hidden" name="cidade" id="f-cidade">
+                  <span class="form-field-error" id="f-cidade-error" role="alert"></span>
                 </div>
-                <div class="form-field">
-                  <span class="form-label">Você é</span>
-                  <div class="radio-group" role="radiogroup" aria-label="Perfil profissional">
+                <fieldset class="radio-fieldset">
+                  <legend class="form-label">Você é</legend>
+                  <div class="radio-group">
                     <label class="radio-item">
                       <input type="radio" name="perfil" value="solo" checked>
                       <span class="radio-label">Psicólogo(a) solo</span>
@@ -2141,23 +2187,24 @@
                       <span class="radio-label">Outro</span>
                     </label>
                   </div>
-                </div>
+                </fieldset>
               </div>
 
-              <div class="form-grid-2" style="margin-top:1rem">
+              <div class="form-grid-2 mt-4">
                 <div class="form-field">
                   <label class="form-label" for="f-atendimentos">Atendimentos por mês</label>
-                  <select class="form-select" id="f-atendimentos" name="atendimentos">
+                  <select class="form-select" id="f-atendimentos" name="atendimentos" required aria-describedby="f-atendimentos-error">
                     <option value="">Selecione</option>
                     <option value="ate-10">Até 10</option>
                     <option value="11-20">11 a 20</option>
                     <option value="21-40">21 a 40</option>
                     <option value="40+">Mais de 40</option>
                   </select>
+                  <span class="form-field-error" id="f-atendimentos-error" role="alert"></span>
                 </div>
                 <div class="form-field">
                   <label class="form-label" for="f-agenda">Como controla a agenda hoje?</label>
-                  <select class="form-select" id="f-agenda" name="agenda">
+                  <select class="form-select" id="f-agenda" name="agenda" required aria-describedby="f-agenda-error">
                     <option value="">Selecione</option>
                     <option value="google">Google Agenda</option>
                     <option value="caderno">Caderno</option>
@@ -2165,13 +2212,14 @@
                     <option value="whatsapp">WhatsApp</option>
                     <option value="outro">Outro</option>
                   </select>
+                  <span class="form-field-error" id="f-agenda-error" role="alert"></span>
                 </div>
               </div>
 
-              <div class="form-grid-2" style="margin-top:1rem">
+              <div class="form-grid-2 mt-4">
                 <div class="form-field">
                   <label class="form-label" for="f-pagamentos">Como controla pagamentos?</label>
-                  <select class="form-select" id="f-pagamentos" name="pagamentos">
+                  <select class="form-select" id="f-pagamentos" name="pagamentos" required aria-describedby="f-pagamentos-error">
                     <option value="">Selecione</option>
                     <option value="planilha">Planilha</option>
                     <option value="caderno">Caderno</option>
@@ -2179,10 +2227,11 @@
                     <option value="memoria">Memória</option>
                     <option value="outro">Outro</option>
                   </select>
+                  <span class="form-field-error" id="f-pagamentos-error" role="alert"></span>
                 </div>
                 <div class="form-field">
                   <label class="form-label" for="f-incomoda">O que mais te incomoda hoje?</label>
-                  <select class="form-select" id="f-incomoda" name="incomoda">
+                  <select class="form-select" id="f-incomoda" name="incomoda" required aria-describedby="f-incomoda-error">
                     <option value="">Selecione</option>
                     <option value="agenda">Agenda</option>
                     <option value="faltas">Faltas e remarcações</option>
@@ -2191,23 +2240,24 @@
                     <option value="whatsapp">WhatsApp desorganizado</option>
                     <option value="outro">Outro</option>
                   </select>
+                  <span class="form-field-error" id="f-incomoda-error" role="alert"></span>
                 </div>
               </div>
 
-              <div class="form-field" style="margin-top:1rem">
+              <div class="form-field mt-4">
                 <label class="form-label" for="f-demo">Você toparia uma demonstração de 15 minutos?</label>
-                <select class="form-select" id="f-demo" name="demo">
+                <select class="form-select" id="f-demo" name="demo" required aria-describedby="f-demo-error">
                   <option value="">Selecione</option>
                   <option value="sim">Sim</option>
                   <option value="sozinho">Prefiro testar sozinho</option>
                   <option value="info">Quero só receber informações</option>
                 </select>
+                <span class="form-field-error" id="f-demo-error" role="alert"></span>
               </div>
 
-              <button type="submit" class="btn btn--primary btn--lg btn--full" style="margin-top:1.25rem">Quero testar o
-                APSI</button>
+              <button type="submit" class="btn btn--primary btn--lg btn--full mt-5">Quero testar o APSI</button>
 
-              <p class="form-disclaimer" style="margin-top:0.75rem">
+              <p class="form-disclaimer mt-3">
                 Usaremos seus dados apenas para entrar em contato sobre o beta do APSI.
               </p>
 
