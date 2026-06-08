@@ -428,8 +428,6 @@ const DEMO_MAP = {
     items.forEach(function (city) {
       var li = document.createElement('li');
       li.textContent = city.label;
-      li.setAttribute('role', 'option');
-      li.setAttribute('aria-selected', 'false');
       li.dataset.value = city.label;
       li.addEventListener('mousedown', function (e) { e.preventDefault(); });
       li.addEventListener('click', function () { selectCity(city.label); });
@@ -481,11 +479,11 @@ const DEMO_MAP = {
 
   /* ---- keyboard nav ---- */
   function setActive(idx) {
-    var items = list.querySelectorAll('li[role="option"]');
-    items.forEach(function (li) { li.setAttribute('aria-selected', 'false'); });
+    var items = list.querySelectorAll('li[data-value]');
+    items.forEach(function (li) { li.classList.remove('is-active'); });
     if (idx >= 0 && idx < items.length) {
       activeIdx = idx;
-      items[idx].setAttribute('aria-selected', 'true');
+      items[idx].classList.add('is-active');
       items[idx].scrollIntoView({ block: 'nearest' });
     }
   }
@@ -519,7 +517,7 @@ const DEMO_MAP = {
   });
 
   searchInp.addEventListener('keydown', function (e) {
-    var items = list.querySelectorAll('li[role="option"]');
+    var items = list.querySelectorAll('li[data-value]');
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       setActive(Math.min(activeIdx + 1, items.length - 1));

@@ -1662,7 +1662,7 @@ h1, h2, h3, h4 { line-height: 1.1; }
 }
 
 .city-dropdown li:hover,
-.city-dropdown li[aria-selected="true"] {
+.city-dropdown li.is-active {
   background: var(--color-primary-light);
   color: var(--color-primary);
 }
@@ -2007,7 +2007,7 @@ h1, h2, h3, h4 { line-height: 1.1; }
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 50%;
-  background: #128C7E;
+  background: #075E54;
   color: #fff;
   box-shadow: 0 4px 16px rgba(37,211,102,0.45), 0 2px 6px rgba(0,0,0,0.15);
   transition: transform 0.2s, box-shadow 0.2s;
