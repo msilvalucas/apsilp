@@ -1995,6 +1995,29 @@ h1, h2, h3, h4 { line-height: 1.1; }
   .mid-cta-title { font-size: 1.5rem; }
 }
 
+/* WhatsApp floating action button */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: #128C7E;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.45), 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.55), 0 3px 8px rgba(0,0,0,0.18);
+}
+.whatsapp-fab:active { transform: scale(0.96); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
