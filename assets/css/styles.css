@@ -308,7 +308,7 @@ summary::-webkit-details-marker { display: none; }
 .section--breath { padding: clamp(72px, 10vw, 128px) 20px; }
 .section--faq { padding: clamp(56px, 8vw, 88px) 20px; }
 
-/* Full-viewport "stage" sections (pinned on desktop) */
+/* Split "stage" sections */
 .stage { position: relative; }
 .stage--split {
   padding: clamp(80px, 9vw, 100px) 20px 40px;
@@ -638,7 +638,7 @@ summary::-webkit-details-marker { display: none; }
   width: 2px;
 }
 .journey-track { background: var(--line-3); }
-.journey-line { background: linear-gradient(var(--blue), var(--teal)); transform-origin: top; }
+.journey-line { background: linear-gradient(var(--blue), var(--teal)); }
 
 .jstep { position: relative; }
 .jdot {
@@ -873,7 +873,7 @@ summary::-webkit-details-marker { display: none; }
   gap: 3px;
   height: 44px;
 }
-.waveform span { flex: none; width: 3px; border-radius: 2px; transform-origin: center; }
+.waveform span { flex: none; width: 3px; border-radius: 2px; }
 
 .panel-body .label-sm { margin-top: 18px; }
 .transcript { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.6; }
@@ -1009,7 +1009,7 @@ summary::-webkit-details-marker { display: none; }
   padding: 0 4px;
   border-bottom: 1px solid var(--line-3);
 }
-.bar { flex: 1; border-radius: 6px 6px 0 0; transform-origin: bottom; background: var(--blue-100); }
+.bar { flex: 1; border-radius: 6px 6px 0 0; background: var(--blue-100); }
 .bar--1 { height: 48%; }
 .bar--2 { height: 62%; }
 .bar--3 { height: 55%; }
@@ -1556,9 +1556,8 @@ summary::-webkit-details-marker { display: none; }
   .price-card, .lead-card { padding: 22px; }
 }
 
-/* Desktop: full-viewport stages, scattered fragments, wide-only UI */
+/* Desktop: scattered fragments, wide-only UI */
 @media (min-width: 960px) {
-  .stage { min-height: 100vh; }
   .nav-links { display: flex; }
   .of { display: block; }
   .app-sidebar { display: flex; }
